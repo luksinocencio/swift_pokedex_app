@@ -11,6 +11,14 @@ import UIKit
 class PokedexCell: UICollectionViewCell {
     
     // MARK: - Properties
+    
+    var pokemon: Pokemon? {
+        didSet {
+            nameLabel.text = pokemon?.name
+            imageView.image = pokemon?.image
+        }
+    }
+    
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .systemGroupedBackground
@@ -48,6 +56,12 @@ class PokedexCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func handleLoginPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            print("Long press did begin...")
+        }
+    }
+    
     // MARK: - Helper Functions
     func configureViewComponents() {
         self.clipsToBounds = true
@@ -58,5 +72,8 @@ class PokedexCell: UICollectionViewCell {
         
         addSubview(nameContainerView)
         nameContainerView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 32)
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLoginPress))
+        self.addGestureRecognizer(longPressGestureRecognizer)
     }
 }
