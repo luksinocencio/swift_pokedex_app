@@ -28,7 +28,6 @@ class InfoView: UIView {
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
-        iv.backgroundColor = .lightGray
         return iv
     }()
     
