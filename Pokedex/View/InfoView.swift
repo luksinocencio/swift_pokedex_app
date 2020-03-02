@@ -8,8 +8,22 @@
 
 import UIKit
 
+protocol InfoViewDelegate {
+    func dismissInfoView(withPokemon pokemon: Pokemon?)
+}
+
 class InfoView: UIView {
     //MARK: - Properties
+    
+    var delegate: InfoViewDelegate?
+    
+    var pokemon: Pokemon? {
+        didSet {
+            guard let pokemon = self.pokemon else { return }
+            imageView.image = pokemon.image
+            nameLabel.text = pokemon.name
+        }
+    }
     
     let imageView: UIImageView = {
         let iv = UIImageView()
@@ -75,8 +89,6 @@ class InfoView: UIView {
         return label
     }()
     
-    
-    
     let weightLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -111,7 +123,8 @@ class InfoView: UIView {
     // MARK: - Selectors
     
     @objc func handleViewMoreInfo() {
-        print("Handle view more info...")
+        guard let pokemon = self.pokemon else { return }
+        delegate?.dismissInfoView(withPokemon: pokemon)
     }
     
     // MARK: - Helper Functions
