@@ -13,6 +13,7 @@ private let reuseIdentifier = "PokedexCell"
 class PokedexController: UICollectionViewController {
     // MARK: - Properties
     var pokemon = [Pokemon]()
+    var searchBar: UISearchBar!
     
     let infoView: InfoView = {
         let view = InfoView()
@@ -75,10 +76,23 @@ class PokedexController: UICollectionViewController {
         }
     }
     
+    func configureSearchBar() {
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        searchBar.showsCancelButton = true
+        searchBar.becomeFirstResponder()
+        searchBar.tintColor = .black
+        
+        navigationItem.rightBarButtonItem = nil
+        navigationItem.titleView = searchBar
+    }
+    
     // MARK: - Selectors
     
     @objc func showSearchBar() {
         print(123)
+        configureSearchBar()
     }
     
     @objc func handleDismissal() {
@@ -157,5 +171,13 @@ extension PokedexController: InfoViewDelegate {
         }) { (_) in
             self.infoView.removeFromSuperview()
         }
+    }
+}
+
+extension PokedexController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationItem.titleView = nil
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
 }
