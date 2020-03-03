@@ -16,12 +16,27 @@ class InfoView: UIView {
     //MARK: - Properties
     
     var delegate: InfoViewDelegate?
+    var configureForInfoControlller = false
     
     var pokemon: Pokemon? {
         didSet {
             guard let pokemon = self.pokemon else { return }
+            guard let type = pokemon.type else { return }
+            guard let defense = pokemon.defense else { return }
+            guard let attack = pokemon.attack else { return }
+            guard let id = pokemon.id else { return }
+            guard let height = pokemon.height else { return }
+            guard let weight = pokemon.weight else { return }
+            
             imageView.image = pokemon.image
-            nameLabel.text = pokemon.name
+            nameLabel.text = pokemon.name?.capitalized
+            
+            configureLabel(label: typeLabel, title: "Type", details: type)
+            configureLabel(label: defenseLabel, title: "Defense", details: "\(defense)")
+            configureLabel(label: heightLabel, title: "Height", details: "\(height)")
+            configureLabel(label: weightLabel, title: "Weight", details: "\(weight)")
+            configureLabel(label: pokedexIdLabel, title: "Pokedex Id", details: "\(id)")
+            configureLabel(label: attackLabel, title: "Base Attack", details: "\(attack)")
         }
     }
     
@@ -124,7 +139,7 @@ class InfoView: UIView {
         defenseLabel.anchor(top: topAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
         
         let separatorView = UIView()
-        separatorView.backgroundColor = .groupTableViewBackground
+        separatorView.backgroundColor = .systemGroupedBackground
         addSubview(separatorView)
         separatorView.anchor(top: typeLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 4, paddingBottom: 0, paddingRight: 4, width: 0, height: 1)
         
@@ -160,7 +175,7 @@ class InfoView: UIView {
         defenseLabel.anchor(top: imageView.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
         
         let separatorView = UIView()
-        separatorView.backgroundColor = .groupTableViewBackground
+        separatorView.backgroundColor = .systemGroupedBackground
         addSubview(separatorView)
         separatorView.anchor(top: typeLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 4, paddingBottom: 0, paddingRight: 4, width: 0, height: 1)
         
