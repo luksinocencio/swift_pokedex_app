@@ -2,11 +2,37 @@
 //  Pokemon.swift
 //  Pokedex
 //
-//  Created by P21 Sistemas on 27/02/20.
+//  Created by Lucas Inocencio on 27/02/20.
 //  Copyright © 2020 Lucas Inocencio. All rights reserved.
 //
 
 import UIKit
+
+struct EvolutionChain {
+    
+    var evolutionArray: [[String: AnyObject]]?
+    var evolutionIds = [Int]()
+    
+    init(evolutionArray: [[String: AnyObject]]) {
+        self.evolutionArray = evolutionArray
+        self.evolutionIds = setEvolutionIds()
+    }
+    
+    func setEvolutionIds() -> [Int] {
+        var results = [Int]()
+        
+        evolutionArray?.forEach({ (dictionary) in
+            if let idString = dictionary["id"] as? String {
+                guard let id = Int(idString) else { return }
+                if id <= 151 {
+                    results.append(id)
+                }
+            }
+        })
+        
+        return results
+    }
+}
 
 class Pokemon {
     var name: String?
@@ -20,6 +46,8 @@ class Pokemon {
     var description: String?
     var type: String?
     var baseExcerience: Int?
+    var evolutionChain: [[String: AnyObject]]?
+    var evoArray: [Pokemon]?
     
     init(id: Int, dictionary: [String: AnyObject]) {
         self.id = id
@@ -58,6 +86,10 @@ class Pokemon {
         
         if let baseExcerience = dictionary["baseExcerience"] as? Int {
             self.baseExcerience = baseExcerience
+        }
+        
+        if let evolutionChain = dictionary["evolutionChain"] as? [[String : AnyObject]] {
+            self.evolutionChain = evolutionChain
         }
         
     }

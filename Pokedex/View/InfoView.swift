@@ -2,7 +2,7 @@
 //  InfoView.swift
 //  Pokedex
 //
-//  Created by P21 Sistemas on 02/03/20.
+//  Created by Lucas Inocencio on 02/03/20.
 //  Copyright © 2020 Lucas Inocencio. All rights reserved.
 //
 
@@ -37,6 +37,8 @@ class InfoView: UIView {
             configureLabel(label: weightLabel, title: "Weight", details: "\(weight)")
             configureLabel(label: pokedexIdLabel, title: "Pokedex Id", details: "\(id)")
             configureLabel(label: attackLabel, title: "Base Attack", details: "\(attack)")
+            
+            print(pokemon.evolutionChain)
         }
     }
     
@@ -158,7 +160,7 @@ class InfoView: UIView {
     
     func configureViewComponents() {
         
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         self.layer.masksToBounds = true
         
         addSubview(nameContainerView)
