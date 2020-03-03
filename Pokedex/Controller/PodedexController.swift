@@ -36,7 +36,6 @@ class PokedexController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
-        
         fetchPokemon()
     }
     
@@ -158,7 +157,6 @@ extension PokedexController: UICollectionViewDelegateFlowLayout {
 }
 
 extension PokedexController: PokedexCellDelegate {
-    
     func presentInfoView(withPokemon pokemon: Pokemon) {
         
         view.addSubview(infoView)
