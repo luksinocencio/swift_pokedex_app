@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8AA866E240E1E370004BA72 /* PokemonInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AA866D240E1E370004BA72 /* PokemonInfoController.swift */; };
 		E8FF4E32240DF88A00697CE8 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF4E31240DF88A00697CE8 /* UISearchBar+Extensions.swift */; };
 		ED663EC72408551800950D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED663EC62408551800950D1C /* AppDelegate.swift */; };
 		ED663EC92408551800950D1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED663EC82408551800950D1C /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E8AA866D240E1E370004BA72 /* PokemonInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoController.swift; sourceTree = "<group>"; };
 		E8FF4E31240DF88A00697CE8 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		ED663EC32408551800950D1C /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED663EC62408551800950D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				ED663EDF2408559200950D1C /* PodedexController.swift */,
+				E8AA866D240E1E370004BA72 /* PokemonInfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				ED663EE62408638B00950D1C /* UIView+Extensions.swift in Sources */,
 				ED663EC72408551800950D1C /* AppDelegate.swift in Sources */,
 				ED663EC92408551800950D1C /* SceneDelegate.swift in Sources */,
+				E8AA866E240E1E370004BA72 /* PokemonInfoController.swift in Sources */,
 				ED663EE02408559200950D1C /* PodedexController.swift in Sources */,
 				ED663EE22408597200950D1C /* UIColor+Extenions.swift in Sources */,
 				EDBD0EF4240D571C00EA237D /* InfoView.swift in Sources */,
