@@ -6,6 +6,7 @@
 //  Copyright © 2020 Lucas Inocencio. All rights reserved.
 //
 
+
 import UIKit
 
 private let reuseIdentifier = "PokedexCell"
@@ -42,7 +43,7 @@ class PokedexController: UICollectionViewController {
     // MARK: - Helper Functions
     
     func configureViewComponents() {
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .systemBackground
         collectionView.bounces = true
         
         navigationController?.navigationBar.barTintColor = .mainPink()

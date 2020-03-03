@@ -13,10 +13,10 @@ protocol InfoViewDelegate {
 }
 
 class InfoView: UIView {
-    //MARK: - Properties
+    
+    // MARK: - Properties
     
     var delegate: InfoViewDelegate?
-    var configureForInfoControlller = false
     
     var pokemon: Pokemon? {
         didSet {
@@ -105,14 +105,14 @@ class InfoView: UIView {
         return button
     }()
     
+    
     // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        configureViewComponents()
     }
     
-    required init?(coder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -139,7 +139,7 @@ class InfoView: UIView {
         defenseLabel.anchor(top: topAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
         
         let separatorView = UIView()
-        separatorView.backgroundColor = .systemGroupedBackground
+        separatorView.backgroundColor = .systemGray
         addSubview(separatorView)
         separatorView.anchor(top: typeLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 4, paddingBottom: 0, paddingRight: 4, width: 0, height: 1)
         
@@ -156,8 +156,8 @@ class InfoView: UIView {
         attackLabel.anchor(top: pokedexIdLabel.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
     }
     
-    
     func configureViewComponents() {
+        
         backgroundColor = .white
         self.layer.masksToBounds = true
         
@@ -175,7 +175,7 @@ class InfoView: UIView {
         defenseLabel.anchor(top: imageView.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
         
         let separatorView = UIView()
-        separatorView.backgroundColor = .systemGroupedBackground
+        separatorView.backgroundColor = .systemGray
         addSubview(separatorView)
         separatorView.anchor(top: typeLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 4, paddingBottom: 0, paddingRight: 4, width: 0, height: 1)
         
