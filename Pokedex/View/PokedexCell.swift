@@ -29,7 +29,7 @@ class PokedexCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.backgroundColor = .systemGroupedBackground
         iv.contentMode = .scaleAspectFit
-        
+        iv.backgroundColor = .systemGray6
         return iv
     }()
     
@@ -78,6 +78,7 @@ class PokedexCell: UICollectionViewCell {
     func configureViewComponents() {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
+        
         
         addSubview(imageView)
         imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: self.frame.height - 32)

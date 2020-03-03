@@ -6,7 +6,6 @@
 //  Copyright © 2020 Lucas Inocencio. All rights reserved.
 //
 
-
 import UIKit
 
 private let reuseIdentifier = "PokedexCell"
@@ -83,8 +82,10 @@ class PokedexController: UICollectionViewController {
         searchBar.sizeToFit()
         searchBar.showsCancelButton = true
         searchBar.becomeFirstResponder()
-        searchBar.tintColor = .black
-        searchBar.setTextField(color: UIColor.white)
+        searchBar.tintColor = .systemGray
+        
+        let cancelButton = searchBar.value(forKeyPath: "cancelButton") as? UIButton
+        cancelButton?.tintColor = UIColor.white
         
         
         navigationItem.rightBarButtonItem = nil
@@ -188,6 +189,10 @@ extension PokedexController: InfoViewDelegate {
             self.infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         }) { (_) in
             self.infoView.removeFromSuperview()
+            guard let pokemon = pokemon else { return }
+            let controller = PokemonInfoController()
+            controller.pokemon = pokemon
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
 }
