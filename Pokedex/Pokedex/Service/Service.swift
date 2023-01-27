@@ -1,15 +1,6 @@
-//
-//  Service.swift
-//  Pokedex
-//
-//  Created by Lucas Inocencio on 27/02/20.
-//  Copyright © 2020 Lucas Inocencio. All rights reserved.
-//
-
 import UIKit
 
 class Service {
-    
     static let shared = Service()
     let BASE_URL = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
     
@@ -55,7 +46,6 @@ class Service {
             
         }.resume()
     }
-    
     
     private func fetchImage(withUrlString urlString: String, completion: @escaping(UIImage) -> ()) {
         guard let url = URL(string: urlString) else { return }

@@ -1,11 +1,3 @@
-//
-//  PokemonInfoController.swift
-//  Pokedex
-//
-//  Created by Lucas Inocencio on 03/03/20.
-//  Copyright © 2020 Lucas Inocencio. All rights reserved.
-//
-
 import UIKit
 
 class PokemonInfoController: UIViewController {

@@ -1,11 +1,3 @@
-//
-//  UIColor+Extenions.swift
-//  Pokedex
-//
-//  Created by Lucas Inocencio on 27/02/20.
-//  Copyright © 2020 Lucas Inocencio. All rights reserved.
-//
-
 import UIKit
 
 extension UIColor {
